@@ -1,7 +1,7 @@
 
-import java.sql.Connection;
+/*import java.sql.Connection;
 import java.sql.DriverManager;
-
+//type1 driver jre1.7.0
 public class ConnTestType1 {
 
 	public static void main(String[] args)throws Exception  {
@@ -19,4 +19,4 @@ public class ConnTestType1 {
 			System.out.println("Connection is  esatblished");
 		}
 	}//main method 
-}//class
+}//class*/
