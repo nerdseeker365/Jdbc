@@ -35,6 +35,7 @@ public class SelectCity1 {
 		con.close();
 		st.close();
 		rs.close();
+		sc.close();
 	}//main method
 
 }//class
