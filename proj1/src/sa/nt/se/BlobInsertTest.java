@@ -15,11 +15,12 @@ SQL> create sequence hID_SEQ start with 1 increment by 1;
 import java.util.Scanner;
 
 public class BlobInsertTest {
-  private static final  String  PHOTO_INSERT_QUERY="INSERT INTO HERO VALUES(hID_SEQ.NEXTVAL,?,?,?)";
-	public static void main(String[] args) {
+  private static final  String  PHOTO_INSERT_QUERY="INSERT INTO HERO VALUES(?,?,?,?)";
+	public static void main(String[] args)throws Exception {
 		Scanner sc=null;
 		String hname=null;
-		float hsal=0.0f;
+		int hid=0;
+		int hsal=0;
 		String hphoto=null;
 		Connection con=null;
 		PreparedStatement ps=null;
@@ -28,14 +29,16 @@ public class BlobInsertTest {
 		long length=0;
 		int result=0;
 		
-	    try{
+	   
 	    	//read inputs
 	    	sc=new Scanner(System.in);
 	    	if(sc!=null){
-	    		System.out.println("Enter Employee name::");
+	    		System.out.println("Enter Employee hid::");
+	    		hid=sc.nextInt();
+	    		System.out.println("Enter Employee hname::");
 	    		hname=sc.next();
-	    		System.out.println("Enter Employee Salary::");
-	    		hsal=sc.nextFloat();
+	    		System.out.println("Enter Employee hSal::");
+	    		hsal=sc.nextInt();
 	    		System.out.println("Enter PhotoPath::");
 	    		hphoto=sc.next();
 	    	}
@@ -45,18 +48,19 @@ public class BlobInsertTest {
 	    	//get the length of the file
 	    	length=file.length();
 	    	
-	    	//register jdbc driver s/w
+	    	//register JDBC driver s/w
 	    	Class.forName("oracle.jdbc.driver.OracleDriver");
 	    	//establish the connection
-	    	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
+	    	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL","scott","tiger");
 	    	//create PreparedStatement object
 	    	if(con!=null)
 	    		ps=con.prepareStatement(PHOTO_INSERT_QUERY);
-	    	//set values to query params
+	    	//set values to query parameters
 	    	if(ps!=null){
-	    		ps.setString(1,hname);
-	    		ps.setFloat(2,hsal);
-	    		ps.setBinaryStream(3,is,length);
+	    		ps.setInt(1,hid);
+	    		ps.setString(2,hname);
+	    		ps.setFloat(3,hsal);
+	    		ps.setBinaryStream(4,is,length);
 	    	}
 	    	//execute the Query
 	    	if(ps!=null)
@@ -66,49 +70,7 @@ public class BlobInsertTest {
 	    		System.out.println("Record not inserted");
 	    	else
 	    		System.out.println("Record  inserted");
-	    }//try
-	    catch(SQLException se){
-	    	se.printStackTrace();
-	    }
-	    catch(ClassNotFoundException cnf){
-	    	cnf.printStackTrace();
-	    }
-	    catch(Exception e){
-	    	e.printStackTrace();
-	    }
-	    finally{
-		try{
-			if(ps!=null)
-				ps.close();
-		}
-		catch(SQLException se){
-			se.printStackTrace();
-		}
-		
-		try{
-			if(con!=null)
-				con.close();
-		}
-		catch(SQLException se){
-			se.printStackTrace();
-		}
-		
-		try{
-			if(is!=null)
-				is.close();
-		}
-		catch(IOException ioe){
-			ioe.printStackTrace();
-		}
-		
-		try{
-			if(sc!=null)
-				sc.close();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}//finally
+	    
 
 	}//main
 }//class
