@@ -19,7 +19,7 @@ public class InsertBlob {
 		String hname=null;
 		String hphoto=null;
 		int hid=0;
-		float hsal=0.0f;
+		int hsal=0;
 		File file=null;
 		InputStream is=null;
 		try {
@@ -30,7 +30,7 @@ public class InsertBlob {
 				System.out.println("Enter hName:  ");
 				hname=sc.next();
 				System.out.println("Enter hSalary: ");
-				hsal=sc.nextFloat();
+				hsal=sc.nextInt();
 				System.out.println("Eneter hPhotopath: ");
 				hphoto=sc.next();
 				
