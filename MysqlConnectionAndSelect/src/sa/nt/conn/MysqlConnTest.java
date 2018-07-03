@@ -1,7 +1,12 @@
 package sa.nt.conn;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+/*user-name: root
+ * password: root 
+ * 
+ */
 
 public class MysqlConnTest {
 
