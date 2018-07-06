@@ -151,19 +151,7 @@ try {
 	finally{
 		
 		//close JDBC objects
-	try{
-			
-			if(sc!=null)
-				
-				sc.close();
-			
-		}
-		
-		catch(Exception e){
-			
-			e.printStackTrace();
-			
-		}
+	
 		
 		
 		try{
@@ -206,6 +194,19 @@ try {
 		catch(SQLException se){
 			
 			se.printStackTrace();
+			
+		}
+		try{
+			
+			if(sc!=null)
+				
+				sc.close();
+			
+		}
+		
+		catch(Exception e){
+			
+			e.printStackTrace();
 			
 		}
 		
