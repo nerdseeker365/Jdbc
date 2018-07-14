@@ -1,13 +1,17 @@
 package sa.nt.se;
 
 import java.io.File;
+
 import java.io.FileInputStream;
-import java.io.IOException;
+
 import java.io.InputStream;
+
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 /*SQL> create table EmpAll(hid number(5) primary key,hname varchar2(20),hsal number(10,2),hphoto blob);
 
 SQL> create sequence hID_SEQ start with 1 increment by 1;
@@ -71,6 +75,6 @@ public class BlobInsertTest {
 	    	else
 	    		System.out.println("Record  inserted");
 	    
-
+	    	sc.close();
 	}//main
 }//class
