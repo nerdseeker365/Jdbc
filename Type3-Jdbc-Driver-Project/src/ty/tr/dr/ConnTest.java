@@ -25,7 +25,7 @@ public class ConnTest {
 		//Register type3 JDBC driver 
 		Class.forName("ids.sql.IDSDriver");
 		//Establishing the Connection
-		con=DriverManager.getConnection("jdbc:ids:///localhost:12/conn?dsn='accdsn'");
+		con=DriverManager.getConnection("jdbc:ids:///localhost:12/conn?dsn='type3'");
 		if(con==null) {
 			System.out.println("Connection is not Established");
 		}

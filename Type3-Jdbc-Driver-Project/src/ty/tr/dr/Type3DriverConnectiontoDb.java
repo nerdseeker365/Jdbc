@@ -35,11 +35,11 @@ public class Type3DriverConnectiontoDb {
 		Class.forName("ids.sql.IDSDriver");
 		
 		//Establishing Connection
-		con=DriverManager.getConnection("jdbc:ids://localhost:12/conn?dsn='oradsn'&user='scott'&password='tiger'");
-/*
-		 con=DriverManager.getConnection("jdbc:ids://localhost:12/conn?dsn='accdsn'");
-		 
-		 */
+		con=DriverManager.getConnection("jdbc:ids://localhost:12/conn?dsn='accdsn'&user='scott'&password='tiger'");
+	 
+		 /*
+		 con=DriverManager.getConnection("jdbc:ids://localhost:12/conn?dsn='accdsn'"); */
+	
 		//create JDBC statement object
 		st=con.createStatement();
 		
