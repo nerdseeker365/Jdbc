@@ -1,0 +1,31 @@
+//type 1 driver  support java 7 version and jar file is Orcl6.jar and oracle 11g
+package com.nt.test;
+import java.sql.Connection;
+import java.sql.DriverManager;
+public class ConnectionTest 
+{
+
+	/*Control panel->Administrator tools->ODBC dataSourse -->user dsn give name like oradsn-->select driver Microsoft Jdbc Odbc Driver
+	C:\Users\admin>set path=F:\Program Files\Java\jdk1.7.0_80\bin;F:\Program Files\Java\jre7\bin;
+
+C:\Users\admin>java -version
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)*/
+	public static void main(String[] args) throws Exception
+	{
+		Connection con=null;
+		//Registering Driver Class Object
+		sun.jdbc.odbc.JdbcOdbcDriver driver=new sun.jdbc.odbc.JdbcOdbcDriver();
+		//Registering driver with driver manager service
+		DriverManager.registerDriver(driver);
+		//Establish the Connection  With Database Software
+		con=DriverManager.getConnection("jdbc:odbc:orasdn","scott","tiger");
+		if(con==null){
+				System.out.println("Connection is not Established");
+		}
+		else{
+				System.out.println("Connection is Established");
+		}//if
+	}//main method
+}//class
